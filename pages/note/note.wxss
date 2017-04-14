@@ -46,6 +46,6 @@ margin:0 15rpx;
 .note-item-l text .note-item-time{float: right;border: none;padding:0;
 }
 .note-item-r icon{height:75rpx;}
-.icon_flag{background:url('../../image/note_flag.png') no-repeat center;background-size:50%;}
+.icon_flag{background:url('../../image/note_flag.png') no-repeat center;background-size:45%;}
 .icon_flag.active{background:url('../../image/note_flag_act.png') no-repeat center;background-size:45%;}
 .icon_del{background:url('../../image/note_del.png') no-repeat center;background-size:45%;}

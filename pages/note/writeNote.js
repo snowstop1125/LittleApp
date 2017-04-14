@@ -2,11 +2,19 @@
 var util = require('../../utils/util.js')
 Page({
   data:{
-    date:''
+    date:'',
+    weather:['无','晴','多云','毛毛雨','中雨'],
+    index: 0,
   },
   bindDateChange: function(e) {
     this.setData({
       date: e.detail.value
+    })
+  },
+  bindPickerChange: function(e) {
+
+    this.setData({
+      index: e.detail.value
     })
   },
   onLoad:function(options){
