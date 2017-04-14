@@ -1,0 +1,51 @@
+page{background:#f1f1f1;}
+/*搜索*/
+.top_content{position:fixed;top:0;left:0;height:84rpx;
+display:flex;background:#50c298;flex-direction:column;
+align-items:center;width:100%;
+
+}
+.search{position: relative;}
+.search icon{position:absolute;right: 15rpx;top: 13rpx;}
+.search input{font-size:30rpx;border:1px solid #fff;width:400rpx;height:55rpx;border-radius:40rpx;padding:0 50rpx 0 20rpx;color:#fff;}
+.p_style{color:#fff;font-size: 30rpx;}
+/*添加按钮*/
+.addNote{position:fixed;width:150rpx;height:150rpx;background:url("../../image/note_add.png") no-repeat 45% #50c298;background-size:75%;opacity: .95;bottom:70rpx;left:50%;margin-left:-75rpx;border-radius: 50%;
+}
+
+/*页面内容*/
+.container{min-height:100vh;background:#f1f1f1;padding:110rpx 0 250rpx;justify-content:inherit;
+
+}
+.noItem{width:100%;display: flex;flex-direction:column;text-align:center;padding-top:200rpx;
+
+}
+.noItem text{color:#cecece;font-size:50rpx;margin:20rpx 0 0;
+}
+.no_icon{background: url("../../image/note_noicon.png") no-repeat center;width: 100%;height: 170rpx;margin: 10rpx 0;}
+.note-item{width:92%;height:150rpx;border:1px solid #000;background: #fff;border-radius:10rpx; 
+box-shadow: 0 2px 0 rgba(0, 0, 0, 0.39);
+display:flex;margin-bottom:20rpx;
+
+}
+
+.note-item-l{width:85%;display:flex;
+
+}
+.note-item-l navigator{width: 100%;height:100%;display: flex;flex-direction:column;}
+.note-item-r{width:15%;display:flex;flex-direction:column;}
+.note-item-l text{border-bottom: 1px dashed #ccc;color:#808080;
+font-size:25rpx;
+height:50rpx;
+line-height:50rpx;padding:0 15rpx;overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
+margin:0 15rpx;
+
+}
+.note-item-l text .note-item-time{float: right;border: none;padding:0;
+}
+.note-item-r icon{height:75rpx;}
+.icon_flag{background:url('../../image/note_flag.png') no-repeat center;background-size:50%;}
+.icon_flag.active{background:url('../../image/note_flag_act.png') no-repeat center;background-size:45%;}
+.icon_del{background:url('../../image/note_del.png') no-repeat center;background-size:45%;}

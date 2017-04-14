@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<view class="top_content">
+<image class="login" bindtap="onLaunch" src="{{userInfo.avatarUrl}}"></image>
+</view>
+
+<scroll-view class="container" style="min-height: calc(100vh - 140rpx);" scroll-y="true" >
+<view class="section">
+  <view class="section__title">功能</view>
+  <view class="flex-wrp" style="">
+    <view class="flex-item"  bindtap="handleTap1" style="background:#50c298;">
+    
+    <navigator url="../note/note" hover-class="navigator-hover">
+    <icon class="l_icon flex_item_icon1" />
+    <text>NOTE 记事本</text>
+    <view class="r_icon">
+      <view class="lock"></view>
+      <view>99</view>
+    </view>
+    </navigator>
+    </view>
+    <view class="flex-item" style="background:#d9c763;">
+    <navigator url="../bill/bill" hover-class="navigator-hover">
+    <icon class="l_icon flex_item_icon2" />
+    <text>BILL 记账本</text>
+    <view class="r_icon r_icon2">
+      <view class="lock" style="display:none;"></view>
+      <view style="color:#d9c763;">0</view>
+    </view>
+    </navigator>
+    </view>
+    <view bindtap="getWeaterInfo" class="flex-item" style="background:#d8d5c5;">
+    <navigator>
+    <icon class="l_icon flex_item_icon3" />
+    <text>更多功能正在开发</text>
+   
+     </navigator></view>
+  
+  </view>
+</view>
+
+
+  <view  bindtap="bindViewTap" class="userinfo" style="display:none;">
+  
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view class="usermotto none">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</scroll-view>
+
+

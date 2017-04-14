@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/note/note",
+    "pages/note/writeNote",
+    
+    
+    
+    "pages/logs/logs",
+    
+    "pages/bill/bill"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "口袋",
+    "navigationBarTextStyle":"#fff"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"image/icon_home.png",
+      "selectedIconPath":"image/icon_home2.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "个人",
+      "iconPath":"image/icon_geren.png",
+      "selectedIconPath":"image/icon_geren2.png"
+      
+    }],
+    "color":"#cdcdcd",
+    "selectedColor":"#000"
+  },
+  "debug": true
+}

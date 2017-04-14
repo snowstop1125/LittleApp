@@ -1,0 +1,8 @@
+<view class="top_content">
+<input placeholder="搜索" placeholder-class="p_style" />
+</view>
+<view class="container">
+  <block wx:for="" wx:key="*this">
+    <text class="log-item">{{index + 1}}. {{log}}</text>
+  </block>
+</view>

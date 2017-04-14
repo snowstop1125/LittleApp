@@ -1,0 +1,32 @@
+<!--logs.wxml-->
+<view class="top_content">
+<view class="search">
+  <icon type="search" color="#fff" size="15"/>
+  <input placeholder="搜索" placeholder-class="p_style" />
+</view>
+</view>
+<view class="container">
+  <view class="noItem"  hidden="{{length > 0}}">
+    <icon class="no_icon" />
+    <text>暂无笔记</text>
+    <text style="font-size:35rpx;">(点击下方按钮进行添加)</text>
+  </view>
+  <block wx:for="{{noteitem}}"  wx:key="id">
+    <view class="note-item">
+      <view class="note-item-l">
+      <navigator url="writeNote?">
+        <text class="note-item-li" style="color:#000;font-size:30rpx;">标题：{{item.title}}</text>
+        <text class="note-item-li">{{item.content}}</text>
+        <text class="note-item-li" style="border:none;">附件：{{item.fileLength}}<text class="note-item-time">{{item.weather}} {{item.date}}</text></text>
+        </navigator>
+      </view>
+      <view class="note-item-r">
+        <icon data-flagidx="{{index}}" bindtap="toflag" class="icon_flag {{item.flag==true?'active':''}}"/>
+        <icon data-deleteidx="{{index}}" bindtap="todelete" class="icon_del" />
+      </view>
+    
+    </view>
+    
+  </block>
+</view>
+<navigator url="writeNote" class="addNote"></navigator>
