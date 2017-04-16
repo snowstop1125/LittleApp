@@ -1,15 +1,8 @@
 {
-  "pages":[
-<<<<<<< HEAD
-    "pages/index/index",
-    "pages/note/writeNote",
-    "pages/note/note",
-=======
-    
+  "pages":[  
     "pages/note/note",
     "pages/note/writeNote",
     "pages/index/index",
->>>>>>> 87e5b12865964383c3f3529bf4f523d2494d2875
     "pages/logs/logs",
     "pages/bill/bill"
   ],

@@ -3,59 +3,33 @@
     <view class="paper_content" >
         <view class="paper_top">
             <view class="section">
-<<<<<<< HEAD
               <view class="note_date">时间
-                <picker mode="date" start="2017-01-01" end="{{noteMessage.date}}" bindchange="bindDateChange">
+                <picker mode="date" start="2017-01-01" end="{{endDate}}" bindchange="dateChange">
                   <view class="picker">{{noteMessage.date}}</view>
                 </picker>
               </view>
               <view class="note_weather">天气
-                <picker mode="selector" range="{{weather}}" bindchange="bindWeatherChange">
-                  <view class="picker" style="width:180rpx;">{{weather[noteMessage.weatherIndex]}}</view>
+                <picker mode="selector" range="{{weather}}" bindchange="weatherChange">
+                  <view class="picker" >{{weather[noteMessage.weatherIndex]}}</view>
                 </picker>
               </view>
             </view>
-        <view class="section title" style="border-bottom:1px solid #000;">
-          <text>标题</text>
-            <input bindinput="titleBlur" maxlength="40" auto-height placeholder="请输入标题" placeholder-style="font-size:35rpx;"/>
-        </view>
-<textarea class="maintext" bindblur="bindTextAreaBlur" auto-height placeholder="正文开始" placeholder-style="font-size:35rpx;"/>
-    </scroll-view>
-=======
-            <view class="note_date">
-            时间
-                <picker mode="date" value="{{date}}" start="2017-01-01" end="{{enddate}}" bindchange="bindDateChange">
-    <view class="picker">
-      {{date}}
-    </view>
-  </picker>
+            <view class="section title" style="border-bottom:1px solid #000;">
+              <text>标题</text>
+              <input bindinput="titleChange" maxlength="20" value="{{noteMessage.title}}" 
+                placeholder="请输入标题" placeholder-style="font-size:35rpx;" />
             </view>
-             <view class="note_weather">
-            天气
-                <picker mode="selector" value="{{index}}"  range="{{weather}}" bindchange="bindPickerChange">
-    <view class="picker" >
-      {{weather[index]}}
-    </view>
-  </picker>
-            </view>
-            </view>
-        <view class="section title" style="border-bottom:1px solid #000;">
-<text>标题</text>
-<input maxlength="20" placeholder="请输入标题" placeholder-style="font-size:35rpx;"/>
         </view>
-        </view>
-
-<textarea class="maintext" bindblur="bindTextAreaBlur"  placeholder="正文开始" placeholder-style="font-size:35rpx;" maxlength="-1" style="font-size:30rpx;" value="{{value}}"/>
+        <textarea class="maintext" bindinput="contentChange"  value="{{noteMessage.content}}" placeholder="正文开始" 
+          placeholder-style="font-size:35rpx;" maxlength="-1" style="font-size:{{noteMessage.textSize}}rpx;" />
     </view>
->>>>>>> 87e5b12865964383c3f3529bf4f523d2494d2875
     <view class="btngroup">
-        <navigator url="url" class="savebtn"></navigator>
+        <navigator url="url" class="savebtn" bindtap="saveDiary"></navigator>
         <icon class="icon_pic" />
         <icon class="icon_color" />
         <icon class=""/>
-        <icon class="icon_size" />
+        <icon data-sizeidx="{{index}}" class="icon_size" bindtap="sizeChange" />
         <icon class="icon_clear" bindtap="toClear"/>
     </view>
-  </view>
-  
+  </view>  
 </view>
