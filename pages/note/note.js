@@ -2,87 +2,77 @@
 var util = require('../../utils/util.js')
 Page({
   data: {
-    noteitem:[
-      {
-      id:0,
-      flag:true,
-      title:'还有设置页面自定义参数？',
-      content:'还有设置页面自定义参数？有没有大婶有个网址参考一下哇',
-      fileLength:'1',
-      weather:'多云',
-      date:'2017-04-14'
-    },
-    {
-      id:1,
-      flag:false,
-      title:'我有一句吗卖批不知当讲不当讲',
-      content:'我有一句吗卖批不知当讲不当讲',
-      fileLength:'1',
-      weather:'多云',
-      date:'2017-04-14'
-    }
-    ]
+    noteItem:[]
   },
   onLoad: function () {
-    const length = this.data.noteitem.length
-    this.setData({
-      length:length,
-      noteitem: this.data.noteitem
-    })
-  
-    // for (let i = 0; i < length; ++i) {
-    //    noteitem.push(i)
-    //   console.log("数组"+noteitem)
-    // }
-   
+    var noteItem = this.data.noteItem;
+    var that = this;
+    wx.getStorage({
+      key: 'DiaryStore',
+      success: function(res){
+        // success
+        noteItem = res.data;
+      },
+      complete: function(res) {
+        // complete
+        var length = noteItem.length;
+        that.setData({
+          length: length,
+          noteItem: noteItem
+        }); 
+      }
+    });
   },
-  toflag:function(e){
+  toFlag:function(e){
     var that = this;
     var idx = e.currentTarget.dataset.flagidx;
-    var noteitem=that.data.noteitem;
-    var thisnote=noteitem[idx];
-    thisnote.flag=!thisnote.flag;
-    if(thisnote.flag==true){
+    var noteItem = that.data.noteItem;
+    var thisNote = noteItem[idx];
+    thisNote.flag = !thisNote.flag;
+    if(thisNote.flag == true){
       wx.showToast({
         title: '已标记',
         icon: 'success',
         duration: 1500
-      })
-    }else{
-      console.log("flag"+this.data.flag);
+      });
+    } else {
       wx.showToast({
         title: '取消标记',
         icon: 'success',
         duration: 1500
-      })
+      });
     }
     that.setData({
-        noteitem:noteitem
-    })
-
+        noteItem:noteItem
+    });
+    console.log(thisNote.id);
+    wx.setStorageSync('DiaryStore', noteItem);
   },
-   todelete:function(e){
-    var that=this;
+  toDelete:function(e){
+    var that = this;
     var idx = e.currentTarget.dataset.deleteidx;
+    var thisNote = that.data.noteItem[idx];
     wx.showModal({
-  title: '提示',
-  confirmText:'不要了！',
-  cancelText:'再想想',
-  confirmColor:'#50c298',
-  cancelColor:'#c4c4c4',
-  content: '确定不要了？',
-  success: function(res) {
-    if (res.confirm) {
-      var noteitem=that.data.noteitem;
-      noteitem.splice(idx,1)
-      that.setData({
-        noteitem:noteitem
-    })
-    } else if (res.cancel) {
-      console.log('用户点击取消')
-    }
-  }
-})
-  }
-  
+      title: '提示',
+      confirmText:'不要了！',
+      cancelText:'再想想',
+      confirmColor:'#50c298',
+      cancelColor:'#c4c4c4',
+      content: '确定不要了？',
+      success: function(res) {
+        if (res.confirm) {
+          var noteItem = that.data.noteItem;
+          noteItem.splice(idx,1);
+          that.setData({
+            noteItem: noteItem
+          });
+          console.log(thisNote.id);
+          wx.setStorageSync('DiaryStore', noteItem);
+          wx.navigateTo({
+            url: 'note'
+          });
+        }
+      }
+    });
+  } 
 })

@@ -6,19 +6,18 @@
   </view>
 </view>
 <view class="container">
-  <block wx:for="{{noteitem}}"  wx:key="id">
+  <block wx:for="{{noteItem}}"  wx:key="id">
     <view class="note-item">
       <view class="note-item-l">
         <navigator url="writeNote?">
           <text class="note-item-li" style="color:#000;font-size:30rpx;">标题：{{item.title}}</text>
           <text class="note-item-li">{{item.content}}</text>
-          <text class="note-item-li" style="border:none;">附件：{{item.fileLength}}
-          <text class="note-item-time">{{item.weather}} {{item.date}}</text></text>
+          <text class="note-item-time">{{item.weatherIndex}} {{item.date}}</text>
         </navigator>
       </view>
       <view class="note-item-r">
-        <icon data-flagidx="{{index}}" bindtap="toflag" class="icon_flag {{item.flag==true?'active':''}}"/>
-        <icon data-deleteidx="{{index}}" bindtap="todelete" class="icon_del" />
+        <icon data-flagidx="{{index}}" bindtap="toFlag" class="icon_flag {{item.flag==true?'active':''}}"/>
+        <icon data-deleteidx="{{index}}" bindtap="toDelete" class="icon_del" />
       </view>
     </view>
   </block>
