@@ -69,7 +69,7 @@ Page({
       var idx = e.currentTarget.dataset.sizeidx;
   },
   saveDiary: function(e) {
-    diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
+    var diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
     diaryMaxId = diaryMaxId + 1;
     wx.setStorageSync('diaryMaxId', diaryMaxId);
     wx.setStorageSync("Diary-" + diaryMaxId, this.data.noteMessage);
