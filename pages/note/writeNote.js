@@ -6,11 +6,12 @@ Page({
       date: util.formatDate(new Date),
       weatherIndex: 0,
       title: "",
-      content: "属性名类型默认值说明valueString输入框的内容",
-      textSize:30
+      content: "",
+      textSize:30,
+      flag: false
     },
     weather:['无','晴','多云','毛毛雨','中雨'],
-    textsize:['20','25','30','35','40'],
+    textSize:['20','25','30','35','40'],
     endDate:util.formatDate(new Date)
   },
   dateChange: function(e) {
@@ -57,7 +58,9 @@ Page({
               date: util.formatDate(new Date),
               weatherIndex: 0,
               title: "",
-              content: ""
+              content: "",
+              textSize: 30,
+              flag: false
             }
           });
         }
