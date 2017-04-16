@@ -11,8 +11,9 @@ Page({
       flag: false
     },
     weather:['无','晴','多云','毛毛雨','中雨'],
-    textSize:['20','25','30','35','40'],
-    endDate:util.formatDate(new Date)
+    textSize:['25','30','35','40','45'],
+    endDate:util.formatDate(new Date),
+    show:false
   },
   dateChange: function(e) {
     var tempMessage = this.data.noteMessage;
@@ -67,9 +68,22 @@ Page({
       }
     });     
   },
+  showChangeSize:function(e){
+      var that = this;
+      that.data.show=!that.data.show;
+       that.setData({
+          show:that.data.show
+      })
+  },
   sizeChange:function(e){
       var that = this;
       var idx = e.currentTarget.dataset.sizeidx;
+      var size=that.data.textSize[idx];
+      var noteMessage=that.data.noteMessage
+      noteMessage.textSize=size;
+      that.setData({
+          noteMessage:noteMessage
+      })
   },
   saveDiary: function(e) {
     var diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;

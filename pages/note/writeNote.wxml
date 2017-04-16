@@ -25,10 +25,17 @@
     </view>
     <view class="btngroup">
         <navigator url="url" class="savebtn" bindtap="saveDiary"></navigator>
+        <view class="changeSize" bindtap="showChangeSize" hidden="{{show == false}}">
+            <text data-sizeidx="0" bindtap="sizeChange"  style="font-size:20rpx;">A</text>
+            <text data-sizeidx="1" bindtap="sizeChange"  style="font-size:25rpx;">A</text>
+            <text data-sizeidx="2" bindtap="sizeChange"  style="font-size:30rpx;">A</text>
+            <text data-sizeidx="3" bindtap="sizeChange"  style="font-size:35rpx;">A</text>
+            <text data-sizeidx="4" bindtap="sizeChange"  style="font-size:40rpx;">A</text>
+        </view>
         <icon class="icon_pic" />
         <icon class="icon_color" />
         <icon class=""/>
-        <icon data-sizeidx="{{index}}" class="icon_size" bindtap="sizeChange" />
+        <icon bindtap="showChangeSize" class="icon_size" />
         <icon class="icon_clear" bindtap="toClear"/>
     </view>
   </view>  
