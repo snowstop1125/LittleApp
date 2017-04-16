@@ -3,6 +3,7 @@ var util = require('../../utils/util.js')
 Page({
   data:{
     noteMessage: {
+      id: 0,
       date: util.formatDate(new Date),
       weatherIndex: 0,
       title: "",
@@ -56,6 +57,7 @@ Page({
         if (res.confirm) {
           that.setData({
             noteMessage: {
+              id: 0,
               date: util.formatDate(new Date),
               weatherIndex: 0,
               title: "",
@@ -86,16 +88,43 @@ Page({
       })
   },
   saveDiary: function(e) {
-    var diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
-    diaryMaxId = diaryMaxId + 1;
-    wx.setStorageSync('diaryMaxId', diaryMaxId);
-    wx.setStorageSync("Diary-" + diaryMaxId, this.data.noteMessage);
-    wx.navigateTo({
-        url: 'note'
-      });
+    // console.log(this.data.noteMessage.id);
+    var note = this.data.noteMessage;
+    wx.getStorage({
+      key: 'DiaryStore',
+      success: function(res){
+        // success
+        var messageList = res.data;
+        console.log(note);
+        var id = messageList[messageList.length - 1].id;
+        note.id = id + 1;
+        messageList.push(note);
+        wx.setStorageSync('DiaryStore', messageList);
+      },
+      fail: function(res) {
+        // fail
+        console.log(note);
+        note.id = 0;
+        var messageList = [note];
+        wx.setStorageSync('DiaryStore', messageList);
+      },
+      complete: function(res) {
+        // complete
+        wx.navigateTo({
+          url: 'note'
+        });
+      }
+    });
+    // wx.setStorageSync('diaryMaxId', this.data.noteMessage.id);
+    // wx.setStorageSync("Diary-" + this.data.noteMessage.id, this.data.noteMessage);
+    // wx.navigateTo({
+    //     url: 'note'
+    //   });
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
+    var diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
+    this.data.noteMessage.id = diaryMaxId + 1;
   },
   onReady:function(){
     // 页面渲染完成
