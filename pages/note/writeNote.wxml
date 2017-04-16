@@ -3,29 +3,21 @@
     <scroll-view class="paper_content" scroll-y="true">
         <view class="paper_top">
             <view class="section">
-            <view class="note_date">
-            时间
-                <picker mode="date" value="{{date}}" start="2017-01-01" end="{{date}}" bindchange="bindDateChange">
-    <view class="picker">
-      {{date}}
-    </view>
-  </picker>
-            </view>
-             <view class="note_weather">
-            天气
-                <picker mode="selector" value="{{index}}"  range="{{weather}}" bindchange="bindPickerChange">
-    <view class="picker" style="width:180rpx;">
-      {{weather[index]}}
-    </view>
-  </picker>
-            </view>
+              <view class="note_date">时间
+                <picker mode="date" start="2017-01-01" end="{{noteMessage.date}}" bindchange="bindDateChange">
+                  <view class="picker">{{noteMessage.date}}</view>
+                </picker>
+              </view>
+              <view class="note_weather">天气
+                <picker mode="selector" range="{{weather}}" bindchange="bindWeatherChange">
+                  <view class="picker" style="width:180rpx;">{{weather[noteMessage.weatherIndex]}}</view>
+                </picker>
+              </view>
             </view>
         <view class="section title" style="border-bottom:1px solid #000;">
-<text>标题</text>
-<textarea bindblur="bindTextAreaBlur" maxlength="40" auto-height placeholder="请输入标题" placeholder-style="font-size:35rpx;"/>
+          <text>标题</text>
+            <input bindinput="titleBlur" maxlength="40" auto-height placeholder="请输入标题" placeholder-style="font-size:35rpx;"/>
         </view>
-        </view>
-
 <textarea class="maintext" bindblur="bindTextAreaBlur" auto-height placeholder="正文开始" placeholder-style="font-size:35rpx;"/>
     </scroll-view>
     <view class="btngroup">

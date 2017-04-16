@@ -2,30 +2,46 @@
 var util = require('../../utils/util.js')
 Page({
   data:{
-    date:'',
-    weather:['无','晴','多云','毛毛雨','中雨'],
-    index: 0,
+    noteMessage: {
+      date: "",
+      weatherIndex: "",
+      title: "",
+      content: ""
+    },
+    weather:['无','晴','多云','毛毛雨','中雨']
   },
   bindDateChange: function(e) {
+    var tempMessage = this.data.noteMessage;
+    tempMessage.date = e.detail.value;
     this.setData({
-      date: e.detail.value
+      noteMessage: tempMessage
     })
   },
-  bindPickerChange: function(e) {
-
+  bindWeatherChange: function(e) {
+    var tempMessage = this.data.noteMessage;
+    tempMessage.weatherIndex = e.detail.value;
     this.setData({
-      index: e.detail.value
-    })
+      noteMessage: tempMessage
+    });
+  },
+  titleBlur : function(e) {
+    var tempMessage = this.data.noteMessage;
+    tempMessage.title = e.detail.value;
+    this.setData({
+      noteMessage: tempMessage
+    });
+    console.log(thi.data.noteMessage.title);
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
     //var date=Date.now();
     var that=this;
-    util.formatDate(new Date)
-    console.log(util.formatDate(new Date))
+    var tempMessage = this.data.noteMessage;
+    tempMessage.date = util.formatDate(new Date);
+    tempMessage.weatherIndex = 0;
     that.setData({
-        date:util.formatDate(new Date)
-    })
+        noteMessage : tempMessage
+    });
   },
   onReady:function(){
     // 页面渲染完成
