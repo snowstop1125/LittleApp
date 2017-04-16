@@ -69,8 +69,13 @@ Page({
       var idx = e.currentTarget.dataset.sizeidx;
   },
   saveDiary: function(e) {
-    diaryMaxId = wx.getStorageSync("diaryMaxId") || 0;
-    wx.setStorageSync("")
+    diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
+    diaryMaxId = diaryMaxId + 1;
+    wx.setStorageSync('diaryMaxId', diaryMaxId);
+    wx.setStorageSync("Diary-" + diaryMaxId, this.data.noteMessage);
+    wx.navigateTo({
+        url: 'note'
+      });
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
