@@ -6,11 +6,6 @@
 </view>
 </view>
 <view class="container">
-  <view class="noItem"  hidden="{{length > 0}}">
-    <icon class="no_icon" />
-    <text>暂无笔记</text>
-    <text style="font-size:35rpx;">(点击下方按钮进行添加)</text>
-  </view>
   <block wx:for="{{noteitem}}"  wx:key="id">
     <view class="note-item">
       <view class="note-item-l">
@@ -28,5 +23,10 @@
     </view>
     
   </block>
+   <view class="noItem"  hidden="{{length > 0}}">
+    <icon class="no_icon" />
+    <text>暂无笔记</text>
+    <text style="font-size:35rpx;">(点击下方按钮进行添加)</text>
+  </view>
 </view>
 <navigator url="writeNote" class="addNote"></navigator>
