@@ -12,7 +12,7 @@
         <navigator url="writeNote?">
           <text class="note-item-li" style="color:#000;font-size:30rpx;">标题：{{item.title}}</text>
           <text class="note-item-li">{{item.content}}</text>
-          <text class="note-item-time">{{item.weatherIndex}} {{item.date}}</text>
+          <text class="note-item-time">{{weather[item.weatherIndex]}} {{item.date}}</text>
         </navigator>
       </view>
       <view class="note-item-r">
