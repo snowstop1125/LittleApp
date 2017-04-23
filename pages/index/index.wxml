@@ -14,7 +14,7 @@
     <text>NOTE 记事本</text>
     <view class="r_icon">
       <view class="lock"></view>
-      <view>99</view>
+      <view>{{noteLength}}</view>
     </view>
     </navigator>
     </view>
