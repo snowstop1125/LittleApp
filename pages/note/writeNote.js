@@ -13,7 +13,8 @@ Page({
     },
     weather:['无','晴','多云','毛毛雨','中雨'],
     textSize:['20','25','30','35','40'],
-    endDate:util.formatDate(new Date)
+    endDate:util.formatDate(new Date),
+    isExist: false
   },
   dateChange: function(e) {
     var tempMessage = this.data.noteMessage;
@@ -74,16 +75,24 @@ Page({
       var idx = e.currentTarget.dataset.sizeidx;
   },
   saveDiary: function(e) {
+    var that = this;
     var note = this.data.noteMessage;
     wx.getStorage({
       key: 'DiaryStore',
       success: function(res){
         // success
         var messageList = res.data;
-        console.log(note);
-        var id = messageList[messageList.length - 1].id;
-        note.id = id + 1;
-        messageList.push(note);
+        if (that.data.isExist) {
+            for(var i = 0; i < messageList.length; i++) {
+              if (messageList[i].id == note.id) {
+                messageList[i] = note;
+              }
+            }
+        } else {
+          var id = messageList[messageList.length - 1].id;
+          note.id = id + 1;
+          messageList.push(note);
+        }
         wx.setStorageSync('DiaryStore', messageList);
       },
       fail: function(res) {
@@ -107,7 +116,23 @@ Page({
     });
   },
   onLoad:function(options){
+    var that = this;
+    console.log(options.nodeItemId);
+    var id = options.nodeItemId;
     // 页面初始化 options为页面跳转所带来的参数
+    if (id != null) {
+      var messageList = wx.getStorageSync('DiaryStore')
+      var item;
+      for(var i = 0; i < messageList.length; i++) {
+        if (messageList[i].id == id) {
+          item = messageList[i];
+        }
+      }
+      that.setData({
+        noteMessage: item,
+        isExist: true
+      })
+    }
   },
   onReady:function(){
     // 页面渲染完成
