@@ -2,7 +2,8 @@
 var util = require('../../utils/util.js')
 Page({
   data: {
-    noteItem:[]
+    noteItem:[],
+    weather:['无','晴','多云','毛毛雨','中雨']
   },
   onLoad: function () {
     var noteItem = this.data.noteItem;
@@ -68,9 +69,7 @@ Page({
           });
           console.log(thisNote.id);
           wx.setStorageSync('DiaryStore', noteItem);
-          wx.navigateTo({
-            url: 'note'
-          });
+          that.onload;
         }
       }
     });

@@ -3,7 +3,7 @@
     <view class="paper_content" >
         <view class="paper_top">
             <view class="section">
-              <view class="note_date">时间
+              <view class="note_date">日期
                 <picker mode="date" start="2017-01-01" end="{{endDate}}" bindchange="dateChange">
                   <view class="picker">{{noteMessage.date}}</view>
                 </picker>

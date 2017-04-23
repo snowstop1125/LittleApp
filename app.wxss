@@ -8,6 +8,6 @@ view,text{font-family:Microsoft YaHei;}
   justify-content: space-between;
   /*padding: 200rpx 0;*/
   box-sizing: border-box;
-  background:url("../../image/bg.png") repeat-y #f7f7f7;
+  background:url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/bg.png") repeat-y #f7f7f7;
 } 
 .none{display:none;}

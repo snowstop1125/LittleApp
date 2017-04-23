@@ -88,7 +88,6 @@ Page({
       })
   },
   saveDiary: function(e) {
-    // console.log(this.data.noteMessage.id);
     var note = this.data.noteMessage;
     wx.getStorage({
       key: 'DiaryStore',
@@ -110,21 +109,19 @@ Page({
       },
       complete: function(res) {
         // complete
-        wx.navigateTo({
-          url: 'note'
-        });
+        var pages = getCurrentPages();
+        var prevPage = getCurrentPages()[pages.length - 2];
+        var messageList = wx.getStorageSync('DiaryStore');
+        prevPage.setData({
+          noteItem: messageList,
+          length: messageList.length
+        })
+        wx.navigateBack();
       }
     });
-    // wx.setStorageSync('diaryMaxId', this.data.noteMessage.id);
-    // wx.setStorageSync("Diary-" + this.data.noteMessage.id, this.data.noteMessage);
-    // wx.navigateTo({
-    //     url: 'note'
-    //   });
   },
   onLoad:function(options){
     // 页面初始化 options为页面跳转所带来的参数
-    var diaryMaxId = parseInt(wx.getStorageSync("diaryMaxId")) || 0;
-    this.data.noteMessage.id = diaryMaxId + 1;
   },
   onReady:function(){
     // 页面渲染完成

@@ -50,9 +50,9 @@ box-shadow:1px 1px 1px #ccc;
 .flex-wrp .flex-item navigator{width:100%;height:100%;
 }
 .flex-item .l_icon{width:200rpx;height:100%;float: left;}
-.flex_item_icon1{background:url("../../image/index_note.png") no-repeat center;}
-.flex_item_icon2{background:url("../../image/index_money.png") no-repeat center;}
-.flex_item_icon3{background:url("../../image/index_wait.png") no-repeat center;}
+.flex_item_icon1{background:url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/index_note.png") no-repeat center;}
+.flex_item_icon2{background:url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/index_money.png") no-repeat center;}
+.flex_item_icon3{background:url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/index_wait.png") no-repeat center;}
 .flex-wrp .flex-item text{float: left;font-size:35rpx;line-height:180rpx;}
 .flex-wrp .flex-item .r_icon{float:right;margin:60rpx 20rpx 0 0;
 display: flex;

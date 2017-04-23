@@ -14,7 +14,7 @@ overflow: hidden;
 /*下排按键*/
 .paper .btngroup{position: absolute;width: 100%;height:80rpx;border-top:1px solid #000;bottom:0;left:0;display: flex;background: #fff;}
 .paper .btngroup .savebtn{width:120rpx;height:120rpx;border-radius: 50%;border: 1px solid #000;position: absolute;bottom:-20rpx;left: 50%;margin-left:-60rpx;
-background: url("../../image/note_save.png") no-repeat center #50c298;background-size: 60%;}
+background: url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/note_save.png") no-repeat center #50c298;background-size: 60%;}
 .changeSize{width:360rpx;height:60rpx;border-radius:10rpx;
 border:1px solid #000;position:absolute;top:-50rpx;
 background:#fff;right:20rpx;display: flex;z-index:2;
@@ -23,10 +23,10 @@ background:#fff;right:20rpx;display: flex;z-index:2;
 .changeSize text{width: 25%;line-height:60rpx;
 text-align: center;}
 .paper .btngroup icon{width: 25%;height: 100%;}
-.icon_pic{background: url("../../image/note_pic.png") no-repeat center;background-size: 40%;}
-.icon_color{background: url("../../image/note_color.png") no-repeat center;background-size: 40%;}
-.icon_size{background: url("../../image/note_size.png") no-repeat center;background-size: 40%;}
-.icon_clear{background: url("../../image/note_clear.png") no-repeat center;background-size: 40%;}
+.icon_pic{background: url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/note_pic.png") no-repeat center;background-size: 40%;}
+.icon_color{background: url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/note_color.png") no-repeat center;background-size: 40%;}
+.icon_size{background: url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/note_size.png") no-repeat center;background-size: 40%;}
+.icon_clear{background: url("https://raw.githubusercontent.com/snowstop1125/LittleApp/master/image/note_clear.png") no-repeat center;background-size: 40%;}
 
 
 
