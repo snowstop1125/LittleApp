@@ -4,9 +4,7 @@
         <view class="paper_top">
             <view class="section">
               <view class="note_date">日期
-                <picker mode="date" start="2017-01-01" end="{{endDate}}" bindchange="dateChange">
                   <view class="picker">{{noteMessage.date}}</view>
-                </picker>
               </view>
               <view class="note_weather">天气
                 <picker mode="selector" range="{{weather}}" bindchange="weatherChange">

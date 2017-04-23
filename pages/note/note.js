@@ -16,6 +16,9 @@ Page({
       },
       complete: function(res) {
         // complete
+        noteItem.sort(function(a, b) {
+          return new Date(b.dateTime) - new Date(a.dateTime);
+        });
         var length = noteItem.length;
         that.setData({
           length: length,

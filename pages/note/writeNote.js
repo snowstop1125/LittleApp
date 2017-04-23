@@ -5,6 +5,7 @@ Page({
     noteMessage: {
       id: 0,
       date: util.formatDate(new Date),
+      dateTime: util.formatTime(new Date),
       weatherIndex: 0,
       title: "",
       content: "",
@@ -16,13 +17,6 @@ Page({
     endDate:util.formatDate(new Date),
     show:false,
     isExist: false
-  },
-  dateChange: function(e) {
-    var tempMessage = this.data.noteMessage;
-    tempMessage.date = e.detail.value;
-    this.setData({
-      noteMessage: tempMessage
-    });
   },
   weatherChange: function(e) {
     var tempMessage = this.data.noteMessage;
@@ -60,6 +54,7 @@ Page({
             noteMessage: {
               id: 0,
               date: util.formatDate(new Date),
+              dateTime: util.formatTime(new Date),
               weatherIndex: 0,
               title: "",
               content: "",
@@ -91,6 +86,8 @@ Page({
   saveDiary: function(e) {
     var that = this;
     var note = this.data.noteMessage;
+    note.date = util.formatDate(new Date);
+    note.dateTime = util.formatTime(new Date);
     wx.getStorage({
       key: 'DiaryStore',
       success: function(res){
@@ -107,6 +104,9 @@ Page({
           note.id = id + 1;
           messageList.push(note);
         }
+        messageList.sort(function(a, b) {
+          return new Date(b.dateTime) - new Date(a.dateTime);
+        });
         wx.setStorageSync('DiaryStore', messageList);
       },
       fail: function(res) {
