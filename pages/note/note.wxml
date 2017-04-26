@@ -10,9 +10,9 @@
     <view class="note-item">
       <view class="note-item-l">
         <navigator url="writeNote?nodeItemId={{item.id}}">
-          <text class="note-item-li" style="color:#000;font-size:30rpx;">标题：{{item.title}}</text>
-          <text class="note-item-li">{{item.content}}</text>
-          <text class="note-item-time" style="border-bottom:none;">{{weather[item.weatherIndex]}} {{item.dateTime}}</text>
+          <view class="note-item-li" style="color:#000;font-size:30rpx;position:relative;padding-left:50rpx;"><icon class="title_icon" />{{item.title}}</view>
+          <view class="note-item-li">{{item.content}}</view>
+          <view class="note-item-time" style="border-bottom:none;">{{weather[item.weatherIndex]}} {{item.dateTime}}</view>
         </navigator>
       </view>
       <view class="note-item-r">
